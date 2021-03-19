@@ -26,10 +26,13 @@ def reqister():
                                    message="Такой пользователь уже есть")
         user = User(
             name=form.name.data,
+            surname=form.surname.data,
+            age = form.age.data,
+            position=form.age.data,
+            speciality=form.speciality.data,
             email=form.email.data,
-            about=form.about.data
+            password=form.password.data
         )
-        user.set_password(form.password.data)
         db_sess.add(user)
         db_sess.commit()
         return redirect('/login')

@@ -18,3 +18,4 @@ class User(SqlAlchemyBase):
     email = sqlalchemy.Column(sqlalchemy.String,
                               index=True, unique=True, nullable=True)
     modified_date = sqlalchemy.Column(sqlalchemy.DateTime, default=datetime.datetime.now)
+    password = sqlalchemy.Column(sqlalchemy.String, nullable=True)
