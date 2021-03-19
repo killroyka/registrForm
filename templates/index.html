@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 align="center">Works log</h1>
+{% for item in jobs%}
+<div class="col-md6 border rounded">
+    <div style="margin-left: 20px">
+        <h2>Action # {{loop.index}}</h2>
+        <table border="2px">
+            <tr bgcolor="gray">
+                <td>Title of activity</td>
+                <td>Team leader</td>
+                <td>Duration</td>
+                <td>List of collaborators</td>
+                <td>if finished</td>
+            </tr>
+            <tr>
+                <td>{{item.job}}</td>
+                {% for item_user in users%}
+                    {% if item_user.id == item.team_leader%}
+                        <td>{{item_user.name}} {{item_user.surname}}</td>
+                    {% else %}
+                        <td>not found</td>
+                    {%endif%}
+                {%endfor%}
+                <td>{{item.work_size}}</td>
+                <td>{{item.collaborators}}</td>
+                <td>{{item.is_finished}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
